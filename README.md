@@ -13,6 +13,7 @@ WITH prep AS (
   ORDER BY
     session_number
 ),
+```
 
 prep_pageview AS (
   SELECT
