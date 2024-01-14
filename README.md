@@ -1,6 +1,6 @@
 # UserSessionCount-
 
-
+```SQL
 WITH prep AS (
   SELECT
     user_pseudo_id,
@@ -52,3 +52,4 @@ HAVING
   prep_session_count.max_session_number IS NOT NULL
 ORDER BY
   prep_session_count.max_session_number;
+```
