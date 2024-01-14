@@ -1,5 +1,7 @@
 # User Session Count 
 
+*You can find the SQL query and its explanation below.
+
 ```SQL
 -- CTE to prepare session-related information
 WITH prep AS (
