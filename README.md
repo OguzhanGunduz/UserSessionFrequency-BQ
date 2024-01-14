@@ -1,8 +1,8 @@
 # User Session Count 
 
-* You can find the SQL query and its explanation below.
+## You can find the SQL query and its explanation below.
 
-### In this query, a Common Table Expression (CTE) named "prep" is created to facilitate window functions. It retrieves user_pseudo_id, ga_session_id, and ga_session_number from the "2021-06-01" dated database, specifically focusing on sessions initiated with the 'session_start' event. Non-null values of ga_session_id are selected, and the results are ordered based on session_number.
+* In this query, a Common Table Expression (CTE) named "prep" is created to facilitate window functions. It retrieves user_pseudo_id, ga_session_id, and ga_session_number from the "2021-06-01" dated database, specifically focusing on sessions initiated with the 'session_start' event. Non-null values of ga_session_id are selected, and the results are ordered based on session_number.
 ```SQL
 -- CTE to prepare session-related information
 WITH prep AS (
@@ -23,7 +23,7 @@ WITH prep AS (
 ),
 ```
 
-### In this query, a Common Table Expression (CTE) named "prep_pageview" is crafted to facilitate window functions. It retrieves user_pseudo_id and ga_session_id from the "2021-06-01" dated database, focusing on events triggered by 'page_view'. For each 'page_view' event, a value of 1 is assigned, and the results are ordered based on the 'page_view' event.
+* In this query, a Common Table Expression (CTE) named "prep_pageview" is crafted to facilitate window functions. It retrieves user_pseudo_id and ga_session_id from the "2021-06-01" dated database, focusing on events triggered by 'page_view'. For each 'page_view' event, a value of 1 is assigned, and the results are ordered based on the 'page_view' event.
 ```SQL
 -- CTE to prepare page_view-related information
 prep_pageview AS (
@@ -41,7 +41,7 @@ prep_pageview AS (
 ),
 ```
 
-### In this query, a Common Table Expression (CTE) named "prep_session_count" is created to facilitate window functions. It retrieves user_pseudo_id and session_id values from the "prep" data. If a user initiates multiple sessions on the same day, they can have multiple "session_number" values. To address this, the "session_number" values are sorted, and the first value is selected, then linked with user_pseudo_id using PARTITION. The results are further ordered by max_session_number and user_pseudo_id.
+* In this query, a Common Table Expression (CTE) named "prep_session_count" is created to facilitate window functions. It retrieves user_pseudo_id and session_id values from the "prep" data. If a user initiates multiple sessions on the same day, they can have multiple "session_number" values. To address this, the "session_number" values are sorted, and the first value is selected, then linked with user_pseudo_id using PARTITION. The results are further ordered by max_session_number and user_pseudo_id.
 ```SQL
 -- CTE to prepare session counts
 prep_session_count AS (
@@ -58,7 +58,7 @@ prep_session_count AS (
 )
 ```
 
-### Utilizing 'prep_session_count' and 'prep_pageview,' this Final Query computes the values for 'max_session_number,' 'sessions,' and 'total_pageviews.' Non-null values of 'max_session_number' are selected, and the results are ordered by 'max_session_number.' This allows us to specifically report on which session number each user reached during the specified time period.
+* Utilizing 'prep_session_count' and 'prep_pageview,' this Final Query computes the values for 'max_session_number,' 'sessions,' and 'total_pageviews.' Non-null values of 'max_session_number' are selected, and the results are ordered by 'max_session_number.' This allows us to specifically report on which session number each user reached during the specified time period.
 ```SQL
 -- Main query to get aggregated results
 SELECT
