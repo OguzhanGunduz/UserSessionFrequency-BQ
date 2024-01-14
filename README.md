@@ -1,4 +1,4 @@
-# User Session Count 
+# User Session Count (Frequency)
 
 * When you execute the provided query, you should see a table structured as follows:
 ![image](https://github.com/OguzhanGunduz/UserSessionCount-BQ/assets/89355322/c3c70e8e-647c-4125-81d9-4087c8bf424b)
