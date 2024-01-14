@@ -1,4 +1,4 @@
-# UserSessionCount-
+# User Session Count
 
 ```SQL
 WITH prep AS (
