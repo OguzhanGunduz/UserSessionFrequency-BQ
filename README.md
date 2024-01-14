@@ -1,5 +1,10 @@
 # User Session Count 
 
+* When you execute the provided query, you should see a table structured as follows:
+![image](https://github.com/OguzhanGunduz/UserSessionCount-BQ/assets/89355322/c3c70e8e-647c-4125-81d9-4087c8bf424b)
+
+
+
 ## You can find the SQL query and its explanation below.
 
 * In this query, a Common Table Expression (CTE) named "prep" is created to facilitate window functions. It retrieves user_pseudo_id, ga_session_id, and ga_session_number from the "2021-06-01" dated database, specifically focusing on sessions initiated with the 'session_start' event. Non-null values of ga_session_id are selected, and the results are ordered based on session_number.
